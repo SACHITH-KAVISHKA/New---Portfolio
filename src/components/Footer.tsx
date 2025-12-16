@@ -27,14 +27,7 @@ const Footer = () => {
 
           {/* Made with Love */}
           <div className="flex items-center gap-2 text-muted-foreground text-sm">
-            <span>Made with</span>
-            <motion.span
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
-              <Heart size={16} className="text-red-500 fill-red-500" />
-            </motion.span>
-            <span>using React & Tailwind</span>
+            
           </div>
 
           {/* Quick Links */}
