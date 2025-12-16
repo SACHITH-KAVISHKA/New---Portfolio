@@ -1,0 +1,279 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ravon Premium - Modern Black + Gold Design System */
+@layer base {
+  :root {
+    /* Jet Black Background */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 100%;
+
+    /* Soft Black Surfaces */
+    --card: 240 15% 8%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 15% 8%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Gold Accent - Primary */
+    --primary: 43 66% 52%;
+    --primary-foreground: 240 10% 4%;
+
+    /* Gold Soft - Secondary */
+    --secondary: 45 72% 66%;
+    --secondary-foreground: 240 10% 4%;
+
+    /* Muted - Slate Gray */
+    --muted: 220 9% 46%;
+    --muted-foreground: 220 9% 70%;
+
+    /* Accent - Warm Gold Hover */
+    --accent: 47 100% 70%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders - Subtle Gold Tint */
+    --border: 45 20% 20%;
+    --input: 45 20% 15%;
+    --ring: 43 66% 52%;
+
+    --radius: 0.75rem;
+
+    /* Glass Effect */
+    --glass: 240 15% 10%;
+    --glass-border: 45 30% 25%;
+
+    /* Glow Colors */
+    --glow-gold: 43 66% 52%;
+    --glow-soft: 45 72% 66%;
+
+    /* Success */
+    --success: 152 69% 47%;
+    --success-foreground: 0 0% 100%;
+
+    /* Sidebar */
+    --sidebar-background: 240 15% 6%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 43 66% 52%;
+    --sidebar-primary-foreground: 240 10% 4%;
+    --sidebar-accent: 45 72% 66%;
+    --sidebar-accent-foreground: 240 10% 4%;
+    --sidebar-border: 45 20% 20%;
+    --sidebar-ring: 43 66% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--glass) / 0.8) 0%,
+      hsl(var(--glass) / 0.4) 100%
+    );
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border) / 0.3);
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.05) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  /* Gold Glow Effect */
+  .gold-glow {
+    box-shadow: 
+      0 0 20px hsl(var(--glow-gold) / 0.2),
+      0 0 40px hsl(var(--glow-gold) / 0.1);
+  }
+
+  .gold-glow-hover:hover {
+    box-shadow: 
+      0 0 30px hsl(var(--glow-gold) / 0.4),
+      0 0 60px hsl(var(--glow-gold) / 0.2);
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--secondary)) 50%,
+      hsl(var(--accent)) 100%
+    );
+  }
+
+  /* Animated Underline */
+  .animated-underline {
+    @apply relative;
+  }
+
+  .animated-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .animated-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Particle Background */
+  .particles-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Section Styling */
+  .section-container {
+    @apply relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Tech Badge */
+  .tech-badge {
+    @apply px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300;
+    background: hsl(var(--glass) / 0.6);
+    border: 1px solid hsl(var(--glass-border) / 0.3);
+  }
+
+  .tech-badge:hover {
+    background: hsl(var(--primary) / 0.15);
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  /* Timeline */
+  .timeline-line {
+    @apply absolute left-6 top-0 bottom-0 w-px;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.5) 10%,
+      hsl(var(--primary) / 0.5) 90%,
+      transparent 100%
+    );
+  }
+
+  .timeline-dot {
+    @apply absolute left-4 w-4 h-4 rounded-full border-2;
+    background: hsl(var(--background));
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer utilities {
+  /* Shimmer Animation */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary) / 0.2) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Float Animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Pulse Glow */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    }
+  }
+
+  /* Rotate Animation */
+  .spin-slow {
+    animation: spin 20s linear infinite;
+  }
+}
