@@ -34,7 +34,7 @@ const About = () => {
               <div className="relative glass-card p-2 rounded-2xl gold-glow">
                 <div className="aspect-square rounded-xl overflow-hidden bg-card">
                   <img
-                    src="src/assets/sachith_dp.jpeg"
+                    src="images/sachith_dp.jpeg"
                     alt="Sachith Kavishka - Software Engineer"
                     className="w-full h-full object-cover"
                   />
